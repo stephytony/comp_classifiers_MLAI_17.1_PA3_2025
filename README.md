@@ -50,16 +50,8 @@ The one slight exception are customers with housing loan types where 52.4% signe
 
 On Education, university degree folks said yes to the bank loan product
 For Job, bank had the most success with folks in admin role which is very broad, followed by Technician, then blue-collar
-Data Preparation
-Apart from the imbalanced nature of the dataset, the following was done to prepare the dataset for modeling:
 
-Renamed "Y" feature to "deposit" to make it more meaningful
-
-Use features 1 - 7 (i.e., job, marital, education, default, housing, loan and contact ) to create a feature set
-Use ColumnTransformer to selectively apply data preparation transforms, it allows you to apply a specific transform or sequence of transforms to just the numerical columns, and a separate sequence of transforms to just the categorical columns
-Use LabelEncoder to encode labels of the target column
-With your data prepared, split it into a train and test set. Next, we will split the data into a training set and a test set using the train_test_split function. We will use 30% of the data as the test set
-Baseline Model Comparison
+## Baseline Model Comparison
 For the baseline model, decided to use a DecisionTreeClassifer which is a class capable of performing multi-class classification on a dataset. This Classifier has the ability to using different feature subsets and decision rules at different stages of classification.
 
 This model will be compared with Logistic Regression model which is used to describe data and the relationship between one dependent variable and one or more independent variables.
@@ -68,9 +60,10 @@ Logistic Regression Machine Learning is quite fascinating and accomplishes some 
 
 In training, fitting and predicting both models on the dataset, the following results were observed:
 
-Model Name	Accuracy	Precision	Recall	F1_Score	Fit Time (ms)
-Decision Tree	0.887513	0.443792	0.499954	0.470202	128
-Logistic Regression	0.887594	0.443797	0.500000	0.470225	193
+| Model       	| Built with all features from data manipulation dataset                                                                           	| 44.54                     	| 43.09     
+|Model Name	 |Accuracy	|Precision  |	Recall	| F1_Score |	Fit Time (ms) |
+|Decision Tree |	0.887513	|0.443792|	0.499954	|0.470202	|128|
+|Logistic Regression	|0.887594	|0.443797|	0.500000|	0.470225|	193|
 Quick review of this results show that accuracy scores were very close with numbers over 85%, however the recall, precision and F1_Score were below 50%.
 
 This means the classifier has a high number of False negatives which can be an outcome of imbalanced class or untuned model hyperparameters. More likely because of the imbalanced dataset with a higher number of Deposit = "No" records.
@@ -102,7 +95,5 @@ Interesting observation in that Logistic Regression, Decision Tree and Support V
 
 Next Steps and Recommendations
 The main question that I have is the imbalanced dataset which is heavily weighted towards the unsuccessful marketing campaigns. If the model is used to determine features that are making the marketing campaign unsuccessful, then the models above could be useful.
-
-Bar Plot of Customers using Cellular Phone for Marketing Campaign!
 
 Alternatively, the model can be used by the financial institution to understand customer profile that they need to target, for example, there was a high score amongst the "Yes" for customers contacted via Cellular so maybe the Bank can adopt modern features like Text Messages, Social Media platforms (i.e. Facebook, Instagram, Twitter, Tik Tok etc) for marketing campaigns
